@@ -1,0 +1,53 @@
+var currentLives = 9;
+var score = 0;
+var generatedNumber = Math.ceil(Math.random()*10);
+
+function checkNumber(guess) {
+    guess = document.getElementById("guess").value;
+    console.log(guess);
+    console.log("Generated Number " + generatedNumber);
+
+   if (guess == generatedNumber) {
+    score++;
+    console.log("correct!")
+    document.getElementById("decision").innerHTML = "correct!";
+    // console.log("Current Score: " + score);
+    document.getElementById("score").innerHTML = "Current Score: " + score;
+    document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
+    document.getElementById("hint").innerHTML = "";
+    replaceDropDown();
+    generatedNumber = Math.ceil(Math.random()*10);
+    // console.log("Generated new number");
+   } 
+   else {
+    currentLives--;
+    console.log("incorrect!");
+    document.getElementById("decision").innerHTML = "incorrect!";
+    document.getElementById("score").innerHTML = "Current Score: " + score;
+    // console.log("Current Lives: " +currentLives);
+    document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
+    if (guess > generatedNumber) {
+        // console.log("My number is less than " + guess);
+        document.getElementById("hint").innerHTML = "My number is less than " + guess;
+    }
+    else {
+        // console.log("My number is greater than " + guess);
+        document.getElementById("hint").innerHTML = "My number is greater than " + guess;
+    }
+    document.getElementById("guess").remove(document.getElementById("guess").selectedIndex);
+   }
+}
+
+function replaceDropDown() {
+    var dropdownElement = document.getElementById("guess");
+    var length = dropdownElement.options.length - 1;
+    for(var i = length; i >= 0; i--) {
+        dropdownElement.remove(i);
+    }
+    for (var i = 1; i < 11; i++) {
+        console.log(i);
+        var option = document.createElement("option");
+        option.text = i;
+        dropdownElement.add(option);
+    }
+}

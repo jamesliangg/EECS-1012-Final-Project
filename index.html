@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title> Number Guesser </title>
+  <!-- <link href="style.css" type="text/css" rel="stylesheet"> -->
+  <script src="./index.js"></script>
+</head>
+
+<body>
+    <!-- <p > What's your guess? </p> -->
+    <label for="guess">What's your guess?</label>
+    <select name="guess" id="guess">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <p> <button id="button" onclick="checkNumber(guess);"> Submit! </button></p>
+    <p id="decision"></p>
+    <p id="lives"></p>
+    <p id="hint"></p>
+    <p id="score"></p>
+</body>
+
+</html>
