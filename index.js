@@ -14,7 +14,7 @@ function checkNumber(guess) {
     // console.log("Current Score: " + score);
     document.getElementById("score").innerHTML = "Current Score: " + score;
     document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
-    document.getElementById("hint").innerHTML = "";
+    document.getElementById("hint").innerHTML = "I've generated a new number, guess this one";
     replaceDropDown();
     generatedNumber = Math.ceil(Math.random()*10);
     // console.log("Generated new number");
@@ -35,6 +35,11 @@ function checkNumber(guess) {
         document.getElementById("hint").innerHTML = "My number is greater than " + guess;
     }
     document.getElementById("guess").remove(document.getElementById("guess").selectedIndex);
+    if (currentLives <= 0) {
+        console.log("death");
+        document.getElementById("hint").innerHTML = "You died, my guess was " + generatedNumber;
+        document.getElementById("guessButton").disabled = true;
+    }
    }
 }
 
