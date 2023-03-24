@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title> Number Guesser </title>
-  <!-- <link href="style.css" type="text/css" rel="stylesheet"> -->
+  <link href="style.css" type="text/css" rel="stylesheet"> 
   <script src="./index.js"></script>
 </head>
 
 <body>
-    <!-- <p > What's your guess? </p> -->
+    <h2> What's your guess? </h2> 
     <label for="guess">What's your guess?</label>
     <select name="guess" id="guess">
         <option value="1">1</option>
@@ -25,9 +25,9 @@
     </select>
     <p> <button id="guessButton" onclick="checkNumber(guess);"> Guess! </button></p>
     <p id="decision"></p>
-    <p id="lives"></p>
     <p id="hint"></p>
-    <p id="score"></p>
+    <p id="lives">Current Lives: 9</p>
+    <p id="score">Current Score: 0</p>
 </body>
 
 </html>
