@@ -1,10 +1,30 @@
 body {
     height: 100vh;
     background: linear-gradient(#bdc3c7, #2c3e50);
-    text-align: center;
 }
 button {
     width: 180px;
     padding: 15px;
     background-color: #c7c1bd;
+}
+#container {
+    margin-top: 16%;
+    margin-left: 25%;
+    width: 50%;
+    text-align: center;
+    
+}
+#header {
+    padding: 15px;
+}
+h3 #git{
+    float: right; 
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+h3 #copyright{
+    float: left;
+    position: fixed;
+    bottom: 0;
 }
