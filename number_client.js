@@ -3,14 +3,11 @@ var userName = "John Smith";
 var currentLives = 9;
 var score = 0;
 const emoji = "♥️";
-
-// for(i=0;i<currentLives;i++){
-//     let livesDisplay = livesDisplay + emoji;
-// }
+var livesDisplay = "♥️♥️♥️♥️♥️♥️♥️♥️♥️"
 
 window.onload = function() {
     userName = prompt('What is your name?', '');
-    // initializeNumber();
+    initializeNumber();
     console.log("I loaded onload!")
 }
 
@@ -32,6 +29,21 @@ function sendGuess() {
             'lives': currentLives
         }), response
     );
+}
+
+function restart() {
+    currentLives = 9;
+    score = 0;
+    livesDisplay = "♥️♥️♥️♥️♥️♥️♥️♥️♥️"
+    initializeNumber();
+    replaceDropDown();
+    document.getElementById("restartButton").disabled = true;
+    document.getElementById("guessButton").disabled = false;
+    document.getElementById("score").innerHTML = "Current Score: " + score;
+    document.getElementById("lives").innerHTML = livesDisplay;
+    document.getElementById("decision").innerHTML = "";
+    document.getElementById("hint").innerHTML = "";
+    document.getElementById("restartButton").setAttribute("hidden", "hidden");
 }
 
 function response(data, status) {
@@ -56,32 +68,32 @@ function correctGuess() {
     console.log("correct!");
     document.getElementById("decision").innerHTML = "correct!";
     document.getElementById("score").innerHTML = "Current Score: " + score;
-    // document.getElementById("lives").innerHTML = livesDisplay;
-    document.getElementById("hint").innerHTML = "I've generated a new number, guess this one";
+    document.getElementById("lives").innerHTML = livesDisplay;
+    document.getElementById("hint").innerHTML = "Your guess was correct! Guess my new number.";
     replaceDropDown();
     initializeNumber();
 }
 
 function wrongGuess(difference, actualNumber) {
     currentLives--;
-    // for(i=0;i<currentLives;i++){
-    //     livesDisplay = livesDisplay + emoji;
-    // }
+    livesDisplay = livesDisplay.substring(0, livesDisplay.length - 2);
     console.log("incorrect!");
     document.getElementById("decision").innerHTML = "incorrect!";
     document.getElementById("score").innerHTML = "Current Score: " + score;
-    // document.getElementById("lives").innerHTML = livesDisplay;
+    document.getElementById("lives").innerHTML = livesDisplay;
     if (difference == 'less') {
-        document.getElementById("hint").innerHTML = "My number is less than " + guess;
+        document.getElementById("hint").innerHTML = "Hint: My number is less than " + guess;
     }
     else {
-        document.getElementById("hint").innerHTML = "My number is greater than " + guess;
+        document.getElementById("hint").innerHTML = "Hint: My number is greater than " + guess;
     }
     document.getElementById("guess").remove(document.getElementById("guess").selectedIndex);
     if (currentLives <= 0) {
         console.log("death");
         document.getElementById("hint").innerHTML = "You died, my number was " + actualNumber;
         document.getElementById("guessButton").disabled = true;
+        document.getElementById("restartButton").disabled = false;
+        document.getElementById("restartButton").removeAttribute("hidden");
     }
 }
 

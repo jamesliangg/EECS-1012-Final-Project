@@ -5,45 +5,47 @@
   <meta charset="utf-8">
   <title> Number Guesser </title>
   <link href="style.css" type="text/css" rel="stylesheet"> 
-  <script src="./index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./number_client.js"></script>
 </head>
 
 <body>
-  <div id="header">
-    <h1>Number Guesser</h1>
-  </div>
-  <div id="container">
-    <h2> What's your guess? </h2> 
-    <label for="guess">What's your guess?</label>
-    <select name="guess" id="guess">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
-    <p> <button id="guessButton" onclick="checkNumber(guess);"> Guess! </button></p>
-    <p id="decision"></p>
-    <p id="hint"></p>
-    <p>Current Lives:</p>
-    <p id="lives">♥️♥️♥️♥️♥️♥️♥️♥️♥️</p>
-    <p id="score">Current Score: 0</p>
-  </div>
-  <div id="description">
-    <h2>Project Description</h2>
-    <p>
-      Our team is working on developing an engaging web-based game that challenges users to guess a number between 1 and 10. Upon launching the application, players can enter a display name to personalize their gaming experience. The game will provide the user with nine lives, and they must use their deduction skills to guess the number selected by the server. The user will earn a point for every correct guess, while a wrong guess will result in a deduction of one life. In case of an incorrect guess, the computer will provide a hint indicating whether the number is higher or lower. Once the user guesses the number correctly, they can continue the game with a new random number. Users' remaining lives will carry forward to the next attempt. However, if they exhaust all their lives, the game will display their score and offer them the option to restart with zero points and nine lives.
-    </p>
-  </div>
-  <h3>
-    <span id="copyright">&#169;Authors</span>
-    <a id="git" href="https://github.com/jamesliangg/EECS-1012-Final-Project" target="_blank">Github</a>
-  </h3>
+    <div id="header">
+        <h1>Number Guesser</h1>
+    </div>
+    <div id="container">
+        <h2>I picked a number between 1-10</h2> 
+        <label for="guess">What's your guess?</label>
+        <select name="guess" id="guess">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <p><button id="guessButton" onclick="sendGuess()">Guess</button></p>
+        <p id="decision"></p>
+        <p id="hint"></p>
+        <p>Current Lives:</p>
+        <p id="lives">♥️♥️♥️♥️♥️♥️♥️♥️♥️</p>
+        <p id="score">Current Score: 0</p>
+        <p><button id="restartButton" onclick="restart()" disabled hidden>Restart</button></p>
+    </div>
+    <div id="description">
+        <h2>Project Description</h2>
+        <p>
+        Our team is working on developing an engaging web-based game that challenges users to guess a number between 1 and 10. Upon launching the application, players can enter a display name to personalize their gaming experience. The game will provide the user with nine lives, and they must use their deduction skills to guess the number selected by the server. The user will earn a point for every correct guess, while a wrong guess will result in a deduction of one life. In case of an incorrect guess, the computer will provide a hint indicating whether the number is higher or lower. Once the user guesses the number correctly, they can continue the game with a new random number. Users' remaining lives will carry forward to the next attempt. However, if they exhaust all their lives, the game will display their score and offer them the option to restart with zero points and nine lives.
+        </p>
+    </div>
+    <h3>
+        <span id="copyright">&#169;Authors</span>
+        <a id="git" href="https://github.com/jamesliangg/EECS-1012-Final-Project" target="_blank">Github</a>
+    </h3>
 </body>
 
 </html>
