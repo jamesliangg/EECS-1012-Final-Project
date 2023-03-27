@@ -1,6 +1,11 @@
 var currentLives = 9;
 var score = 0;
 var generatedNumber = Math.ceil(Math.random()*10);
+const emoji = "♥️";
+
+for(i=0;i<currentLives;i++){
+    let livesDisplay = livesDisplay + emoji;
+}
 
 function checkNumber(guess) {
     guess = document.getElementById("guess").value;
@@ -13,7 +18,8 @@ function checkNumber(guess) {
     document.getElementById("decision").innerHTML = "correct!";
     // console.log("Current Score: " + score);
     document.getElementById("score").innerHTML = "Current Score: " + score;
-    document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
+    //document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
+    document.getElementById("lives").innerHTML = livesDisplay;
     document.getElementById("hint").innerHTML = "I've generated a new number, guess this one";
     replaceDropDown();
     generatedNumber = Math.ceil(Math.random()*10);
@@ -21,11 +27,16 @@ function checkNumber(guess) {
    } 
    else {
     currentLives--;
+    livesDisplay = "";
+    for(i=0;i<currentLives;i++){
+        livesDisplay = livesDisplay + emoji;
+    }
     console.log("incorrect!");
     document.getElementById("decision").innerHTML = "incorrect!";
     document.getElementById("score").innerHTML = "Current Score: " + score;
     // console.log("Current Lives: " +currentLives);
-    document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
+    //document.getElementById("lives").innerHTML = "Current Lives: " + currentLives;
+    document.getElementById("lives").innerHTML = livesDisplay;
     if (guess > generatedNumber) {
         // console.log("My number is less than " + guess);
         document.getElementById("hint").innerHTML = "My number is less than " + guess;
