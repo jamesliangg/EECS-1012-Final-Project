@@ -25,9 +25,15 @@ app.post('/post', (req, res) => {
     }
     else if (requestInfo['action'].includes('guess')) {
         var result = evaluateGuess(requestInfo['name'], requestInfo['guess']);
+        var returnedNumber;
+        if (requestInfo['lives'] == 1 && !result[0]){
+            returnedNumber = result[2];
+        }
         var jsontext = JSON.stringify({
             'action': 'guess',
-            'result': result
+            'result': result[0],
+            'difference': result[1],
+            'number': returnedNumber
         });
         res.send(jsontext);
     }
@@ -45,5 +51,12 @@ function evaluateGuess(client, guess) {
     console.log(client);
     console.log(numbers[client]);
     console.log(guess);
-    return numbers[client] == guess;
+    var result = [];
+    if (numbers[client] < guess) {
+        result = [numbers[client] == guess, 'less', numbers[client]];
+    }
+    else {
+        result = [numbers[client] == guess, 'more', numbers[client]];
+    }
+    return result;
 }
