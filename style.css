@@ -21,13 +21,23 @@ body {
     }
 }
 
+label{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#decision, #hint, #lives, #score, #current{
+    font-size: 24px;
+    font-weight: bold;
+}
+
 button {
     width: 180px;
     padding: 15px;
     background-color: #c7c1bd;
 }
 #container {
-    margin-top: 12%;
+    margin-top: 5%;
     margin-left: 25%;
     width: 50%;
     text-align: center;
@@ -54,5 +64,8 @@ h3 #footer{
     text-align: center;
     width: 50%;
     margin-left: 25%;
-    margin-top: 5%;
+    /* margin-top: 5%; */
+}
+#descriptionText{
+    font-size: 20px;
 }
