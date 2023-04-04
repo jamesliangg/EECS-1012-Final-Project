@@ -72,6 +72,7 @@ function correctGuess() {
     document.getElementById("hint").innerHTML = "Your guess was correct! Guess my new number.";
     replaceDropDown();
     initializeNumber();
+    return score;
 }
 
 function wrongGuess(difference, actualNumber) {
@@ -94,7 +95,9 @@ function wrongGuess(difference, actualNumber) {
         document.getElementById("guessButton").disabled = true;
         document.getElementById("restartButton").disabled = false;
         document.getElementById("restartButton").removeAttribute("hidden");
+        return "death";
     }
+    return currentLives;
 }
 
 function replaceDropDown() {

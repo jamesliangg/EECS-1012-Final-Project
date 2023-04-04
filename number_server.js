@@ -41,10 +41,11 @@ app.post('/post', (req, res) => {
 console.log("Server is running! (listening on http://localhost:" + port + ")");
 
 function generateNumber(clientName) {
-    generatedNumber = Math.ceil(Math.random()*10);
+    var generatedNumber = Math.ceil(Math.random()*10);
     numbers[clientName] = generatedNumber;
     console.log(numbers);
     console.log(generatedNumber);
+    return generatedNumber;
 }
 
 function evaluateGuess(client, guess) {
